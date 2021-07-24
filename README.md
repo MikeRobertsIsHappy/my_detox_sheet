@@ -1,1 +1,1 @@
-# my_detox_sheet
+# my_emotional_detox_sheet
