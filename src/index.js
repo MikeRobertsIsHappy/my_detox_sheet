@@ -93,6 +93,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
+
+          <h2>&nbsp;My Emotional Work Sheet</h2><br /><br />
+          <h2>&nbsp;Section #1 - It's all about you!</h2><br /><br />
+           &nbsp; Answer the questions below and drag the feeling and need words to the correct column. 
+           <br /><br />
+           &nbsp; Explain the situation factually <br />  
+   
+          &nbsp;&nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97">
+          This where you type info about what you want to type.
+          </textarea>
+          <br /><br />
+          &nbsp;&nbsp; Tell me more about the facts   <br />
+          &nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97" border-radius="20px">
+          type more stuff here
+          </textarea>
+          <br />
+    
+          <br />
+          &nbsp; Now consider which feelings are at issue:
+          <br />
         <DragDropContext
         onDragStart={this.onDragStart}
         onDragEnd={this.onDragEnd}
@@ -118,6 +138,9 @@ class App extends React.Component {
           })}
         </Container>
       </DragDropContext>
+      <br />
+      &nbsp; Now consider which needs are at issue:
+      <br />
         <DragDropContext
           onDragStart={this.onDragStart}
           onDragEnd={this.onDragEnd}
@@ -143,6 +166,92 @@ class App extends React.Component {
             })}
           </Container>
         </DragDropContext>
+        <br />
+        &nbsp; Time to type Stratigies<br />
+        &nbsp;&nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97">
+        This where you type Stratigies about what you want to type.</textarea>
+        <br /><br /><br />
+
+
+   
+          <h2>&nbsp;Section #2 - It's all about them!</h2><br /><br />
+           &nbsp; Answer the questions below and drag the feeling and need words to the correct column. 
+           <br /><br />
+           &nbsp; Explain the situation factually <br />  
+   
+          &nbsp;&nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97">
+          This where you type info about what you want to type.
+          </textarea>
+          <br /><br />
+          &nbsp;&nbsp; Tell me more about the facts   <br />
+          &nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97" border-radius="20px">
+          type more stuff here
+          </textarea>
+          <br />
+    
+          <br />
+          &nbsp; Now consider which feelings are at issue:
+          <br />
+        <DragDropContext
+        onDragStart={this.onDragStart}
+        onDragEnd={this.onDragEnd}
+      >
+        <Container>
+          {this.state.columnOrder.map((columnId, index) => {
+            const column = this.state.columns[columnId];
+            const tasks = column.taskIds.map(
+              taskId => this.state.tasks[taskId],
+            );
+
+            // this where you can set a condtion for dragging, like you can only drag forward.    const isDropDisabled = index < this.state.homeIndex;
+            const isDropDisabled = false;
+            
+            return (
+              <Column
+                key={column.id}
+                column={column}
+                tasks={tasks}
+                isDropDisabled={isDropDisabled}
+              />
+            );
+          })}
+        </Container>
+      </DragDropContext>
+      <br />
+      &nbsp; Now consider which needs are at issue:
+      <br />
+        <DragDropContext
+          onDragStart={this.onDragStart}
+          onDragEnd={this.onDragEnd}
+        >
+          <Container>
+            {this.state.columnOrder2.map((columnId, index) => {
+              const column = this.state.columns[columnId];
+              const tasks = column.taskIds.map(
+                taskId => this.state.tasks[taskId],
+              );
+
+              // this where you can set a condtion for dragging, like you can only drag forward.    const isDropDisabled = index < this.state.homeIndex;
+              const isDropDisabled = false;
+              
+              return (
+                <Column
+                  key={column.id}
+                  column={column}
+                  tasks={tasks}
+                  isDropDisabled={isDropDisabled}
+                />
+              );
+            })}
+          </Container>
+        </DragDropContext>
+        <br />
+        &nbsp; Time to type Stratigies<br />
+        &nbsp;&nbsp;<textarea id="w3review" name="w3review" rows="4" cols="97">
+        This where you type Stratigies about what you want to type.</textarea>
+        <br /><br /><br />
+
+
       </div>
     );
   }
